@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	 <settings>
+         <setting name="cacheEnabled" value="true"/>
+		 <setting name="logImpl" value="LOG4J"/>
+     </settings>
+	
+	<typeAliases>
+		<typeAlias alias="Mood" type="com.qjk.entiy.Mood"/>
+		<typeAlias alias="MoodVo" type="com.qjk.entiy.MoodVo"/>
+		<typeAlias alias="Counter" type="com.qjk.entiy.Counter"/>
+	</typeAliases>
+	
+	<!-- 指定映射文件-->
+	<mappers>
+		<mapper resource="com/qjk/entiy/sqlmap/Mood-sqlmap-mapping.xml" />
+		<mapper resource="com/qjk/entiy/sqlmap/Counter-sqlmap-mapping.xml" />
+	</mappers> 
+</configuration>

@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* 2015-03-25 新版 */
+.right-window{ position:fixed; right:1px; height:200px; top:55%; margin-top:-100px; z-index:1000; }
+.right-window ul{ width:140px; overflow:hidden; }
+.right-window ul li{ width:140px; height:48px; margin-bottom:2px;position:absolute;right:-91px; list-style-type: none;}
+.right-window ul li i{float:left; display:inline-block; width:48px; height:48px; background:rgba(3, 3, 3, 0.29) url(../images/commen/right-ico.png) left top no-repeat;}
+.right-window ul li.show-li i{ background-color:rgba(14, 244, 253, 0.63);}
+.right-window ul li em{ cursor:pointer; background-color:rgba(14, 244, 253, 0.63);; float:right; display:inline-block; width:85px; padding-left:5px; height:48px; line-height:24px;font-size:14px; color:#fff;}
+.right-window ul li span{cursor:pointer; background-color:#2dae36;float:right; display:inline-block; width:85px; padding-left:5px; height:48px; line-height:48px; font-size:14px; color:#fff;}
+.right-window ul .right-tel { top:0px; }
+.right-window ul .right-qq { top:50px;}
+.right-window ul .right-wechat{ top:100px;}
+.right-window ul .right-msg{ top:150px;}
+.right-window ul .right-top{ top:150px;} 
+.right-window ul .right-tel i{ background-position:0px 0px;}
+.right-window ul .right-qq i{background-position:0px -48px;}
+.right-window ul .right-wechat i{background-position:0px -96px;}
+.right-window ul .right-msg i{background-position:0px -144px;}
+.right-window ul .right-top i{background-position:0px -192px;}
+
+.right-wechat-code{background-color:#fff; width:120px; padding:12px 12px 0px; border:1px  solid #f5f5f5;position:absolute; top:100px; right:50px; display:none;}
+.right-wechat-code p{ line-height:30px; text-align:center; height:30px; font-size:12px; color:#999;}
+.right-form{ background-color:#fff; width:172px; padding:15px 20px 25px; border:1px  solid #f5f5f5; position:absolute; top:0px; right:50px; display:none;} 
+.right-form h2{ line-height:18px; color:#999; font-size:14px; position:relative;}
+.right-form h2 em{ display:inline-block; position:absolute; right:0px; top:0px; width:21px; height:21px; background:url(img/right-close.png) left center no-repeat; cursor:pointer; }
+.right-form .right-text{ width:154px; margin-top:7px; height:33px; padding:0 8px;border:1px  solid #f5f5f5;}
+.right-form .right-textarea{width:164px; margin-top:7px;border:1px  solid #f5f5f5; padding:8px;}
+.right-form .right-button{ width:172px; height:24px; color:#fff; font-size:12px; border-radius:12px; background-color:#33ad37; border:0px; margin-top:17px;}
+/*first-msg*/
+

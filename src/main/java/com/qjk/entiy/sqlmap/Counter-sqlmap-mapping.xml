@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+	<mapper namespace="com.qjk.entity.Counter">
+	
+	
+	<insert id="addCounter" parameterType="Counter">
+        insert into
+        	Counter (count,alias,updateTime,entiyId) 
+        		values(#{count},#{alias},#{updateTime},#{entiyId}) 
+	</insert>
+	
+	<update id="updateCounter" parameterType="Counter">
+		UPDATE Counter 
+			SET count=#{count},alias=#{alias},updateTime=#{updateTime},entiyId=#{entiyId}  
+				WHERE objectId=#{objectId}
+	</update>
+	
+	<delete id="deleteCounter" parameterType="long">
+		DELETE FROM Counter 
+			WHERE objectId=#{objectId}
+	</delete>
+	
+	
+	<select id="queryCounterById" resultType="Counter" parameterType="long">
+		SELECT 
+			objectId,count,alias,updateTime,entiyId
+				from Counter
+					where objectId=#{objectId}			
+	</select>
+	
+	<select id="queryCounter" resultType="Counter" parameterType="Counter">
+		SELECT 
+			objectId,count,alias,updateTime,entiyId
+				from Counter
+					where 1	= 1 
+				<if test ="alias != null">
+					AND alias = #{alias}
+				</if> 
+				<if test ="entiyId != null">
+					AND entiyId = #{entiyId}
+				</if>			
+	</select>
+	
+	<select id="queryCounterList" resultType="Counter" >
+		SELECT 
+			objectId,count,alias,updateTime,entiyId
+				from Counter				
+	</select>
+	
+	
+	<update id="doAddCounter" parameterType="map" >
+		UPDATE Counter 
+			SET count=count + 1,updateTime = #{updateTime}
+				where 1 = 1
+				<if test ="alias != null">
+					AND alias = #{alias}
+				</if> 
+				<if test ="entiyId != null">
+					AND entiyId = #{entiyId}
+				</if>
+				<if test="objectId != null">
+					AND objectId = #{objectId}
+				</if>	
+							
+	</update>
+	
+	
+	<update id="doMinusCounter" parameterType="map" >
+		UPDATE Counter 
+			SET count=count - 1,updateTime = #{updateTime}
+				where 1 = 1
+				<if test ="alias != null">
+					AND alias = #{alias}
+				</if> 
+				<if test ="entiyId != null">
+					AND entiyId = #{entiyId}
+				</if>
+				<if test="objectId != null">
+					AND objectId = #{objectId}
+				</if>	
+							
+	</update>
+	
+	
+</mapper>

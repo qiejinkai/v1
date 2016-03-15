@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/qjk/dao/BaseDao.java" charset="GB18030" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/qjk/entiy/Article.java" charset="GB18030" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/qjk/entiy/ArticleVo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/qjk/entiy/Counter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/qjk/entiy/Entiy.java" charset="GB18030" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/qjk/entiy/Mood.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/qjk/entiy/MoodVo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/qjk/entiy/Vo.java" charset="GB18030" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

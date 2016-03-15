@@ -1,0 +1,15 @@
+/*item_bannar*/
+.item_bannar{ width:100%; height:405px; position:relative; overflow:hidden; }
+.bannar_infos{  width:1100px; height:282px; margin:10px auto;}
+.bannar_project_infos{ width:555px; padding:10px; background: rgba(0,0,0,0.5); height:262px;}
+.bannar_project_infos h1{ font-size:42px; color:#fff;}
+.bannar_project_infos h2{ line-height:60px; height:60px;font-size:42px; color:#21b11e; padding-bottom:5px; border-bottom:1px solid #57666e;}
+.bannar_project_infos p{ height:20px; line-height:20px; padding-top:6px; color:#fff; font-size:12px;}
+.bannar_project_infos p span{ background:url(../img/project_details_ico.png) left top no-repeat; background-position:0px 0px; padding:2px 28px 2px 20px;}
+.bannar_project_infos p em{ background:url(../img/project_details_ico.png) left top no-repeat; background-position:0px -50px; padding:2px 28px 2px 20px;}
+.bannar_project_infos p i{ background:url(../img/project_details_ico.png) left top no-repeat; background-position:0px -100px; padding:2px 28px 2px 20px; font-style:normal;}
+.bannar_project_link{ height:22px; padding-top:19px;}
+.bannar_project_link a{ display:inline-block; float: left; width:60px; height:24px; line-height:24px; font-size:14px; color:#fff;  margin-right:15px;}
+.bannar_project_link .add_favorite_btn{ cursor: pointer; color: #fff; display:inline-block; float: right; background-color:#21b11e; height:24px; line-height:24px; border: 0px; width: 66px; font-size: 12px;text-align: center; }
+.bannar_project_link a em{ background:url(../img/project_treade_ico.png) left top no-repeat;   padding-left:22px;}
+.bannar_project_link a span{ background:url(../img/project_details_ico.png) left top no-repeat; background-position:0px -200px;padding-left:22px;}
