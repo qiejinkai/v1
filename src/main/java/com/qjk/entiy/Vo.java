@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * ????????
+ * 视图类
  * 
  * @author qiejinkai
  *
@@ -12,43 +12,43 @@ import java.util.List;
 public class Vo<T> implements Serializable{
 	
 	/**
-	 *????
+	 *版本号
 	 */
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * ??????????
+	 * 实体
 	 */
 	private T t;
 
 	/**
-	 * ????
+	 * 计数
 	 */
 	private long count = 0 ;
 	
 	/**
-	 * ???????
+	 * 排序
 	 */
 	private String order;
 	
 	
 	/**
-	 * ????
+	 * 页码
 	 **/
 	private int pageIndex = 1 ;
 
 	/**
-	 * ??????
+	 * 分页大小
 	 **/
 	private int pageSize = 10;
 	
 	/**
-	 * ?????????
+	 * 当前页
 	 */
 	private int offSet = 0;
 	
 	/**
-	 * ??????
+	 * 结果集
 	 */
 	private List<T> list;
 	

@@ -1,10 +1,17 @@
 package com.qjk.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.stereotype.Repository;
 
 import com.qjk.dao.BaseDao;
 
@@ -16,11 +23,43 @@ import com.qjk.dao.BaseDao;
  * @param <T>
  */
 @SuppressWarnings("rawtypes")
+@Repository
 public class BaseDaoImpl<T> implements BaseDao<T>{
 	
 	
 	@Resource
 	protected SqlSessionTemplate sqlSessionTemplate;
+	
+	@Resource
+	protected RedisTemplate<String, Object> redisTemplate;
+
+
+	/**
+	 * …Ë÷√redisTemplate
+	 * 
+	 * @param redisTemplate
+	 *            the redisTemplate to set
+	 */
+	public void setRedisTemplate(RedisTemplate<String,Object>redisTemplate) {
+		this.redisTemplate = redisTemplate;
+	}
+
+	/**
+	 * ªÒ»° RedisSerializer <br>
+	 * ------------------------------<br>
+	 */
+	public RedisSerializer<String> getRedisSerializer() {
+		return redisTemplate.getStringSerializer();
+	}
+
+	@Override
+	public RedisTemplate<String, Object> getRedisTemplate() {
+		return redisTemplate;
+	}
+	
+	
+	
+	
 
 	@Override
 	public void add(String statement, T t) {
@@ -160,5 +199,54 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 			
 		}
 		return null;
+	}
+
+	@Override
+	public String getCache(final String key) {
+		 String result = redisTemplate.execute(new RedisCallback<String>() {  
+	            public String doInRedis(RedisConnection connection)  
+	                    throws DataAccessException {  
+	                RedisSerializer<String> serializer = getRedisSerializer();  
+	                byte[] keyBates = serializer.serialize(key);  
+	                byte[] valueBates = connection.get(keyBates);  
+	                if (valueBates == null) {  
+	                    return null;  
+	                }  
+	                String result = serializer.deserialize(valueBates);  
+	                return result;  
+	            }  
+	        });  
+	        return result;  
+	}
+
+	@Override
+	public void deleteCache(String key) {
+		List<String> list = new ArrayList<String>();  
+		list.add(key);  
+		delete(list);  
+	}
+
+	@Override
+	public boolean setCache(final String key, final String value) {
+		
+		redisTemplate.delete(key);
+		boolean result = redisTemplate.
+								execute(new RedisCallback<Boolean>() {  
+		    public Boolean doInRedis(RedisConnection connection)  
+		            throws DataAccessException {  
+		        RedisSerializer<String> serializer = getRedisSerializer();
+		            byte[] keyBates  = serializer.serialize(key);
+		            byte[] nameBates = serializer.serialize(value);  
+		            connection.setNX(keyBates, nameBates);  
+		        return true;  
+		    }  
+		}, false, true); 
+
+		return result;
+		
 	}	
+	
+	private void delete(List<String> keys) {  
+        redisTemplate.delete(keys);  
+    }  
 }

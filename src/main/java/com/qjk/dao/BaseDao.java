@@ -2,6 +2,9 @@ package com.qjk.dao;
 
 import java.util.List;
 
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+
 /**
  * 
  * @author qiejinkai
@@ -38,6 +41,23 @@ public interface BaseDao <T> {
 	
 	public List<T> queryList(T t);
 	
+	
+	public void setRedisTemplate(RedisTemplate<String,Object>redisTemplate);
+	
+	
+	public RedisTemplate<String,Object> getRedisTemplate();
+
+	/**
+	 * ªÒ»° RedisSerializer <br>
+	 * ------------------------------<br>
+	 */
+	public RedisSerializer<String> getRedisSerializer();
+	
+	public String getCache(String key);
+	
+	public void deleteCache(String key);
+	
+	public boolean setCache(String key,String value);
 	
 
 }
